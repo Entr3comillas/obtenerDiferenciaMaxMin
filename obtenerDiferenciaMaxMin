@@ -1,0 +1,31 @@
+public class DiferenciaMaxMin {
+    public static void main(String[] args) {
+        int[] numeros = {5, 8, 2, 10, 3};
+        int resultado = obtenerDiferenciaMaxMin(numeros);
+
+        System.out.println("La diferencia entre el valor más grande y el más pequeño es: " + resultado);
+    }
+
+    // Método para obtener la diferencia entre el valor más grande y el más pequeño en una matriz
+    private static int obtenerDiferenciaMaxMin(int[] array) {
+        // Asegurarse de que la matriz tenga al menos un elemento
+        if (array.length <= 0) {
+            throw new IllegalArgumentException("La longitud de la matriz debe ser 1 o superior.");
+        }
+
+        int maximo = array[0];
+        int minimo = array[0];
+
+        // Iterar sobre la matriz para encontrar el valor máximo y mínimo
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > maximo) {
+                maximo = array[i];
+            } else if (array[i] < minimo) {
+                minimo = array[i];
+            }
+        }
+
+        // Calcular la diferencia entre el valor más grande y el más pequeño
+        return maximo - minimo;
+    }
+}
